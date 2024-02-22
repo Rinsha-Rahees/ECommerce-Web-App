@@ -7,11 +7,12 @@ import {
   ShoppingCartIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import ButtonStyle from "../ButtonStyle";
+import ButtonStyle from "../GenericComponents/ButtonStyle";
+import { Link } from "react-router-dom";
 
 function NavBarUI() {
   return (
-    <div className="flex flex-row items-center justify-between w-full h-fit p-2">
+    <div className="flex flex-row items-center justify-between w-full shadow-md lg:shadow-none xl:max-w-[85vw] h-fit px-2">
       <div className="flex flex-row lg:hidden">
         <button>
           <Bars3Icon className="h-6 mx-3" />
@@ -22,9 +23,11 @@ function NavBarUI() {
       </div>
 
       <div className="mx-4">
-        <h1 className="text-xs sm:text-2xl lg:text-3xl font-bold">
+        <Link to={`/`}>
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
           E COMMERCE
         </h1>
+        </Link>
       </div>
 
       <div className="hidden lg:flex flex-row items-center justify-center bg-gray-50 border p-0.5 rounded-md text-sm">
@@ -46,19 +49,19 @@ function NavBarUI() {
       </div>
 
       <div className="flex flex-row items-center justify-center rounded-md text-sm">
-        <button className="mx-2">
+        <button className="mx-1">
           <UserIcon className="h-6" />
         </button>
-        <button className="mx-2 pb-3">
-          <div className="relative top-3 left-4 h-4 w-4 bg-rose-600 rounded-full">
+        <button className="mx-1 pb-3">
+          <div className="relative top-3 left-4 h-4 w-4 bg-black rounded-full">
             <span className="absolute flex justify-center items-center w-full h-full text-white">
               0
             </span>
           </div>
           <HeartIcon className="h-6" />
         </button>
-        <button className="mx-2 pb-3">
-          <div className="relative top-3 left-4 h-4 w-4 bg-black rounded-full">
+        <button className="mx-3 pb-3">
+          <div className="relative top-3 left-4 h-4 w-4 bg-orange-600 rounded-full">
             <span className="absolute flex justify-center items-center w-full h-full text-white">
               0
             </span>

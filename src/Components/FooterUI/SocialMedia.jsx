@@ -1,29 +1,31 @@
 import React from "react";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
-function SocialMedia() {
-  const socialIcons = [
-    "src/assets/Socials/facebook.png",
-    "src/assets/Socials/instagram.png",
-    "src/assets/Socials/pinterest.png",
-    "src/assets/Socials/youtube.png",
-    "src/assets/Socials/spotify.png"
-  ];
-
+function SocialMedia({ icons }) {
   return (
     <>
-        {socialIcons.map((icon, idx) => {
-            return(
-                <button className="w-8 border rounded-full p-1.5 gap-3 hover:border-rose-600">
-                <img 
-                src={icon} 
-                alt="Social Media Icon" 
-                className="w-5" 
-                />
-                </button>
-            )
-        })}
+      {icons.map((iconDetails, idx) => {
+        return (
+          <button
+            data-tooltip-id="my-tooltip-1"
+            data-tooltip-content={`Follow on ${iconDetails.name}`}
+            key={`${idx}_icons`}
+            className="w-8 border rounded-full p-1.5 hover:border-emerald-700 lg:hover:-translate-y-1.5 ease-in-out duration-500">
+            <img
+              src={iconDetails.src}
+              alt="Social Media Icon"
+              className="w-6"
+            />
+            <Tooltip
+              id="my-tooltip-1"
+              place="top"
+              style={{backgroundColor:"black", marginTop:6}}
+            />
+          </button>
+        );
+      })}
     </>
-    
   );
 }
 

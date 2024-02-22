@@ -1,45 +1,52 @@
 import React from "react";
-import ButtonStyle from "../ButtonStyle";
+import ButtonStyle from "../GenericComponents/ButtonStyle";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 function ProductCard({ productDetails }) {
   return (
-    <div className="flex flex-col border rounded-lg h-fit w-50 md:w-60  font-mono hover:bg-slate-100">
-      <div className="flex flex-col items-center justify-center">
-        <div className="relative h-fit w-full">
-          <div className="absolute top-1 right-1 rounded-md bg-white text-black hover:bg-black hover:text-white w-6 p-0.5">
-            <HeartIcon className="hover:animate-pulse" />
-          </div>
-        </div>
+    <div className="flex flex-col rounded-lg h-fit font-mono">
+      <Link to="/productview">
+      <div className="relative flex flex-col items-center justify-center h-fit w-full top-0 border rounded-md">
+        <div className="absolute hover:bg-gray-400 duration-300 ease-in-out hover:opacity-20  h-full w-full top-0 rounded-md" />
+        <button className="absolute top-1 right-1 rounded-md bg-white text-black hover:bg-black hover:text-white w-8 p-1.5">
+          <HeartIcon className="hover:animate-pulse" />
+        </button>
         <img
           src={productDetails?.image}
           alt={"Image " + productDetails?.title}
-          className="max-h-60"
+          className="h-64 sm:h-72 lg:h-80 w-fit rounded-md"
         />
-        <div className="flex justify-center my-2">
+        <div className="flex justify-center my-1">
           {productDetails?.size.map((size, idx) => {
             return (
-              <span 
-              className="border border-black text-xs p-0.5 mx-0.5" 
-              key={`${idx}_size`}>
+              <span
+                className="border border-black text-xs p-0.5 mx-0.5"
+                key={`${idx}_size`}>
                 {size}
               </span>
             );
           })}
         </div>
       </div>
+      </Link>
 
-      <div className="flex flex-col leading-3">
-        <div className="flex flex-col px-2">
-          <span>{productDetails?.title}</span>
-          <span className="font-bold text-lg">{productDetails?.price}</span>
-          <span className="mb-2">
-            <StarIcon className="w-5" />
-          </span>
+      <div className="flex flex-col">
+        <div className="flex flex-col mt-1.5">
+          <button className="flex w-fit text-sm hover:text-emerald-600 ease-in-out duration-200">{productDetails?.title}</button>
+          <span className="font-semibold text-lg leading-3">{productDetails?.price}</span>
+          <div className="flex items-center">
+            <StarIcon className="w-3" />
+            <span className="text-xs font-sans font-extralight ml-0.5">
+              2 reviews
+            </span>
+          </div>
         </div>
-        <button>
-          <ButtonStyle bgcolor="black" textcolor="white">ADD TO CART</ButtonStyle>
+        <button className="leading-3">
+          <ButtonStyle bgcolor="black" textcolor="white">
+            ADD TO CART
+          </ButtonStyle>
         </button>
       </div>
     </div>
