@@ -1,6 +1,6 @@
 import React from 'react'
 import Categories from './Categories';
-import { categoryItems } from '../GenericComponents/DataArray'; 
+import { categoryItems } from '../DataArray'; 
 
 function CategoryBar() {
     

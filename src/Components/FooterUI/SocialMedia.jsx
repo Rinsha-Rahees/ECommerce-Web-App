@@ -13,18 +13,20 @@ function SocialMedia({ icons }) {
             key={`${idx}_icons`}
             className="w-8 border rounded-full p-1.5 hover:border-emerald-700 lg:hover:-translate-y-1.5 ease-in-out duration-500">
             <img
-              src={iconDetails.src}
+              src={`/${iconDetails.src}`}
               alt="Social Media Icon"
               className="w-6"
-            />
-            <Tooltip
-              id="my-tooltip-1"
-              place="top"
-              style={{backgroundColor:"black", marginTop:6}}
             />
           </button>
         );
       })}
+
+      <Tooltip
+        id="my-tooltip-1"
+        place="top"
+        style={{ backgroundColor: "black", marginTop: 6 }}
+      />
+      
     </>
   );
 }

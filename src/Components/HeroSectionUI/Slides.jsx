@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from '../GenericComponents/Carousel'
-import { advertisementImages } from '../GenericComponents/DataArray' 
+import { advertisementImages } from '../DataArray' 
 
 function Slides() {
     

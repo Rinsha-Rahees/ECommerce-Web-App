@@ -2,18 +2,12 @@ import React from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
 
 function ProductDescription({ description }) {
-  const [title] = description.map((product) => {
-    return product.title;
-  });
-  const [price] = description.map((product) => {
-    return product.price;
-  });
 
   return (
     <div className="flex flex-col justify-between items-center w-full ">
       <div className="flex justify-between items-center w-full tracking-wide">
-        <span className="text-2xl">{title}</span>
-        <span className="text-xl font-semibold">{price}</span>
+        <span className="text-2xl">{description.title}</span>
+        <span className="text-xl font-semibold">{description.price}</span>
       </div>
       <div className="flex justify-between text-xs w-full font-sans">
         <div className="flex flex-col">

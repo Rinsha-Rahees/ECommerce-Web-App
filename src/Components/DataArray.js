@@ -71,7 +71,12 @@ export const categoryItems = [
 export const bootsCollection = [
   {
     id: 1,
-    image: "src/assets/Jeans/baggy_cargos.webp",
+    images: [
+      "src/assets/Jeans/baggy_jeans.jpg",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+    ],
     title: "BROWN//ANKLE",
     price: "RS.2,500",
     rating: 4,
@@ -79,7 +84,12 @@ export const bootsCollection = [
   },
   {
     id: 2,
-    image: "src/assets/Jeans/baggy_cargos.webp",
+    images: [
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+    ],
     title: "BEIGE//UNISEX",
     price: "RS.3,999",
     rating: 3,
@@ -87,7 +97,12 @@ export const bootsCollection = [
   },
   {
     id: 3,
-    image: "src/assets/Jeans/baggy_cargos.webp",
+    images: [
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+    ],
     title: "BROWN//UNISEX",
     price: "RS.1,899",
     rating: 5,
@@ -95,7 +110,12 @@ export const bootsCollection = [
   },
   {
     id: 4,
-    image: "src/assets/no-logo-black-cap-02_1024x (1).webp",
+    images: [
+      "src/assets/no-logo-black-cap-02_1024x (1).webp",
+      "src/assets/no-logo-black-cap-02_1024x (1).webp",
+      "src/assets/no-logo-black-cap-02_1024x (1).webp",
+      "src/assets/no-logo-black-cap-02_1024x (1).webp",
+    ],
     title: "BLACK//WOMEN",
     price: "RS.2,999",
     rating: 4,
@@ -103,7 +123,12 @@ export const bootsCollection = [
   },
   {
     id: 5,
-    image: "src/assets/Jeans/baggy_cargos.webp",
+    images: [
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+    ],
     title: "CAP//BROWNIE",
     price: "RS.599",
     rating: 3,
@@ -111,27 +136,16 @@ export const bootsCollection = [
   },
   {
     id: 6,
-    image: "src/assets/Jeans/baggy_cargos.webp",
+    images: [
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+      "src/assets/Jeans/baggy_cargos.webp",
+    ],
     title: "T-SHIRT SET//UNISEX",
     price: "RS.2,999",
     rating: 5,
     size: ["M/32", "L/36"],
-  },
-  {
-    id: 7,
-    image: "src/assets/Jeans/baggy_cargos.webp",
-    title: "MOM FIT//WOMEN",
-    price: "RS.2,599",
-    rating: 2,
-    size: ["SM/28"],
-  },
-  {
-    id: 8,
-    image: "src/assets/Jeans/baggy_cargos.webp",
-    title: "T-SHIRT//WRITINGS",
-    price: "RS.2,399",
-    rating: 5,
-    size: ["SM/28", "M/32", "L/36"],
   },
 ];
 

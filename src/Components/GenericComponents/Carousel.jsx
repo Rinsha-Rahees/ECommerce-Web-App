@@ -27,26 +27,25 @@ function Carousel({ images }) {
               return (
                 <img
                   key={`${idx}_image`}
-                  src={img}
+                  src={`/${img}`}
                   alt={`Ad Slide_${idx + 1}`}
                 />
               );
             })}
           </div>
 
-          <div className="absolute flex items-center justify-between top-0 h-full w-full px-5">
-            <button onClick={previousSlide} aria-label="Previous Slide">
-              <div className="w-fit bg-gray-200 opacity-50 text-black rounded-full p-2">
-                <ChevronLeftIcon className="w-6 xl:w-8" />
-              </div>
+          <div className="absolute flex items-center justify-between top-0 h-full w-full px-10 hover:px-5 duration-500">
+            <button onClick={previousSlide} aria-label="Previous Slide"
+            className="w-fit bg-gray-800 text-white rounded-full p-2">
+                <ChevronLeftIcon className="w-6" />
             </button>
-            <button onClick={nextSlide} aria-label="Next Slide">
-              <div className="w-fit bg-gray-200 opacity-50 text-black rounded-full p-2">
-                <ChevronRightIcon className="w-6 xl:w-8" />
-              </div>
+            <button onClick={nextSlide} aria-label="Next Slide"
+            className="w-fit bg-gray-800 text-white rounded-full p-2">
+                <ChevronRightIcon className="w-6" />
             </button>
+          </div>
 
-            <div className="absolute flex justify-center w-full bottom-0 gap-3 py-4">
+          <div className="absolute flex justify-center w-full bottom-0 gap-3 py-4">
               {images.map((_, idx) => {
                 return (
                   <div
@@ -54,14 +53,14 @@ function Carousel({ images }) {
                       setCurrent(idx);
                     }}
                     key={"circle" + idx}
-                    className={`w-5 h-5 rounded-full cursor-pointer ${
+                    className={`w-4 h-4 rounded-full cursor-pointer ${
                       idx === current ? "bg-gray-200" : "bg-gray-500"
                     }`}
                   />
                 );
               })}
             </div>
-          </div>
+
         </div>
       )}
     </>
