@@ -12,7 +12,7 @@ import {
   socialMediaIcons,
   coolStuffList,
   boringStuffList,
-} from "../DataArray";
+} from "../../assets/DataCollection/DataArray";
 
 function Footer() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { bootsCollection } from "../Components/DataArray";
+import { bootsCollection } from "../assets/DataCollection/DataArray";
 import ProductFullImages from "../Components/ProductDetailedViewUI/ProductFullImages";
 import Carousel from "../Components/GenericComponents/Carousel";
 import ProductDescription from "../Components/ProductDetailedViewUI/ProductDescription";
@@ -14,8 +14,6 @@ function ProductDetails() {
   const productId = params.productId;
 
   const prodDesc = bootsCollection.find((obj) => obj.id == productId);
-
-  console.log(prodDesc);
 
   return (
     <>

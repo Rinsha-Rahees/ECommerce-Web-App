@@ -9,8 +9,16 @@ import {
 } from "@heroicons/react/24/outline";
 import ButtonStyle from "../GenericComponents/ButtonStyle";
 import { Link } from "react-router-dom";
+import { openCartDrawer } from "../../reduxhandle/CartDrawer/CartDrawerAction"
+import { useDispatch, useSelector } from 'react-redux'
+import CartDrawer from "../CartUI/CartDrawer";
+
 
 function NavBarUI() {
+
+  const dispatch = useDispatch()
+  const { cart } = useSelector((state) => state.cart)
+
   return (
     <div className="flex flex-row items-center justify-between w-full shadow-md lg:shadow-none xl:max-w-[85vw] h-fit px-2">
       <div className="flex flex-row lg:hidden">
@@ -60,15 +68,17 @@ function NavBarUI() {
           </div>
           <HeartIcon className="h-6" />
         </button>
-        <button className="mx-3 pb-3">
+        <button className="mx-3 pb-3" onClick={() => dispatch(openCartDrawer())}>
           <div className="relative top-3 left-4 h-4 w-4 bg-orange-600 rounded-full">
             <span className="absolute flex justify-center items-center w-full h-full text-white">
-              0
+              {cart.length}
             </span>
           </div>
           <ShoppingCartIcon className="h-6" />
         </button>
       </div>
+
+      <CartDrawer/>
     </div>
   );
 }

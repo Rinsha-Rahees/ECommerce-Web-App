@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import { bootsCollection } from "../DataArray"; 
+import { bootsCollection } from "../../assets/DataCollection/DataArray"; 
 
 function ProductList() {
   return (
