@@ -8,16 +8,16 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import ButtonStyle from "../GenericComponents/ButtonStyle";
-import { Link } from "react-router-dom";
-import { openCartDrawer } from "../../reduxhandle/CartDrawer/CartDrawerAction"
-import { useDispatch, useSelector } from 'react-redux'
+import { openCartDrawer } from "../../reduxhandle/CartDrawer/CartDrawerAction";
+import { useDispatch, useSelector } from "react-redux";
 import CartDrawer from "../CartUI/CartDrawer";
-
+import { Link } from "react-router-dom";
 
 function NavBarUI() {
 
-  const dispatch = useDispatch()
-  const { cart } = useSelector((state) => state.cart)
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.cart);
+  const { wishlist } = useSelector((state) => state.wishlist);
 
   return (
     <div className="flex flex-row items-center justify-between w-full shadow-md lg:shadow-none xl:max-w-[85vw] h-fit px-2">
@@ -30,13 +30,11 @@ function NavBarUI() {
         </button>
       </div>
 
-      <div className="mx-4">
-        <Link to={`/`}>
+      <Link to="/">
         <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
           E COMMERCE
         </h1>
-        </Link>
-      </div>
+      </Link>
 
       <div className="hidden lg:flex flex-row items-center justify-center bg-gray-50 border p-0.5 rounded-md text-sm">
         <span className="mx-4">All Categories</span>
@@ -57,18 +55,23 @@ function NavBarUI() {
       </div>
 
       <div className="flex flex-row items-center justify-center rounded-md text-sm">
-        <button className="mx-1">
+        <button className="px-1">
           <UserIcon className="h-6" />
         </button>
-        <button className="mx-1 pb-3">
-          <div className="relative top-3 left-4 h-4 w-4 bg-black rounded-full">
-            <span className="absolute flex justify-center items-center w-full h-full text-white">
-              0
-            </span>
-          </div>
-          <HeartIcon className="h-6" />
-        </button>
-        <button className="mx-3 pb-3" onClick={() => dispatch(openCartDrawer())}>
+
+        <Link to={`/wishlist`}>
+          <button className="pb-3">
+            <div className="relative top-3 left-4 h-4 w-4 bg-black rounded-full">
+              <span className="absolute flex justify-center items-center w-full h-full text-white">
+                {wishlist.length}
+              </span>
+            </div>
+            <HeartIcon className="h-6" />
+          </button>
+        </Link>
+        <button
+          className="px-3 xl:pl-3 pb-3"
+          onClick={() => dispatch(openCartDrawer())}>
           <div className="relative top-3 left-4 h-4 w-4 bg-orange-600 rounded-full">
             <span className="absolute flex justify-center items-center w-full h-full text-white">
               {cart.length}
@@ -78,7 +81,7 @@ function NavBarUI() {
         </button>
       </div>
 
-      <CartDrawer/>
+      <CartDrawer />
     </div>
   );
 }

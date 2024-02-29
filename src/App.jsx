@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
+import WishList from "./pages/WishList";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/productview/:productId" element={<ProductDetails />} />
+          <Route path="/wishlist" element={<WishList />} />
         </Routes>
       </BrowserRouter>
     </div>
