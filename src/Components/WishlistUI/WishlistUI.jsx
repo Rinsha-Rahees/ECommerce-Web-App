@@ -5,18 +5,22 @@ import { useSelector } from "react-redux";
 
 function WishlistUI() {
   const { wishlist } = useSelector((state) => state.wishlist);
-
-  const [inputValue, setInputValue] = useState();
-
-  let [filtered, setFiltered] = useState(wishlist);
+  const [filtered, setFiltered] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
   const handleOnChange = (e) => {
-    setInputValue(e.target.value);
     let value = e.target.value;
+    setInputValue(value);
     setFiltered(wishlist.filter((product) => {
-      return product.id == value || product.title == value || product.price == value
-    }))
-
+      const idMatch = product.id == value;
+      const titleMatch = product.title
+        .toLowerCase()
+        .replace(/ /g, "_")
+        .includes(value.toLowerCase().replace(/ /g, "_"));
+      const priceMatch = product.price == value;
+      return idMatch || titleMatch || priceMatch 
+    })
+    )
   };
 
   return (
@@ -38,7 +42,6 @@ function WishlistUI() {
 
       <hr className="border-1 mt-2 w-full" />
       <WishlistItems filtered={filtered} />
-
     </div>
   );
 }

@@ -9,7 +9,7 @@ function SocialMedia({ icons }) {
         return (
           <button
             data-tooltip-id="my-tooltip-1"
-            data-tooltip-content={`Follow on ${iconDetails.name}`}
+            data-tooltip-content={`Follow on ${iconDetails?.name}`}
             key={`${idx}_icons`}
             className="w-8 border rounded-full p-1.5 hover:border-emerald-700 lg:hover:-translate-y-1.5 ease-in-out duration-500">
             <img

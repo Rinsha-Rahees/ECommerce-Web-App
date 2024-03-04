@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ButtonStyle from "../GenericComponents/ButtonStyle";
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartIconOutline } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -13,9 +14,10 @@ function ProductCard({ productDetails }) {
   const dispatch = useDispatch();
 
   const [tooltipId, setTooltipId] = useState("");
-  const [heartBgColor, setHeartBgColor] = useState("bg-white");
-  const [heartTextColor, setHeartTextColor] = useState("text-black");
   const [linkToWishlist, setLinkToWishlist] = useState("");
+  
+  const [heartHoverEffect, setHeartHoverEffect] = useState("hover:bg-black hover:text-white");
+  const [heartIcon, setHeartIcon] = useState(<HeartIconOutline className="w-6 hover:animate-pulse" />)
   
 
   const handleAddToCart = () => {
@@ -26,13 +28,11 @@ function ProductCard({ productDetails }) {
   const handleAddToWishlist = () => {
     dispatch(addToWishlist(productDetails?.id));
     setTooltipId("my-tooltip-1");
-    setHeartBgColor("bg-black")
-    setHeartTextColor("text-white")
+    setHeartHoverEffect("hover:bg-none hover:text-none")
+    setHeartIcon(<HeartIconSolid className="w-6"/>)
+    //To open wishlist
     setLinkToWishlist("/wishlist")
-    //Code to open wishlist
   };
-
-  console.log(tooltipId);
 
   return (
     <div className="flex flex-col h-full font-mono">
@@ -44,8 +44,8 @@ function ProductCard({ productDetails }) {
           data-tooltip-id={tooltipId}
           data-tooltip-content="Browse Wishlist"
           onClick={() => handleAddToWishlist()}
-          className={`absolute top-1 right-1 rounded-md ${heartBgColor} ${heartTextColor} hover:bg-black hover:text-white p-1`}>
-          <HeartIcon className="w-6 hover:animate-pulse" />
+          className={`absolute top-1 right-1 rounded-md p-1 ${heartHoverEffect}`}>
+          {heartIcon}
         </button>
         </Link>
 

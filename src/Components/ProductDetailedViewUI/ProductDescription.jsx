@@ -6,8 +6,8 @@ function ProductDescription({ description }) {
   return (
     <div className="flex flex-col justify-between items-center w-full ">
       <div className="flex justify-between items-center w-full tracking-wide">
-        <span className="text-2xl">{description.title}</span>
-        <span className="text-xl font-semibold">{description.price}</span>
+        <span className="text-2xl">{description?.title}</span>
+        <span className="text-xl font-semibold">{description?.price}</span>
       </div>
       <div className="flex justify-between text-xs w-full font-sans">
         <div className="flex flex-col">

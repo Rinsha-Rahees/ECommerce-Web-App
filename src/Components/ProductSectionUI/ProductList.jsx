@@ -1,15 +1,14 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import { bootsCollection } from "../../assets/DataCollection/DataArray"; 
+import { productDetails } from "../../assets/DataCollection/DataArray"; 
 
 function ProductList() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-2 p-2 mt-4 xl:max-w-[85vw]">
-      {bootsCollection.map((product, idx) => {
+      {productDetails.map((product) => {
           return (
-            
             <ProductCard
-              key={`${idx}_${product.title}`}
+              key={`${product?.id}`}
               productDetails={product}
             />
           );

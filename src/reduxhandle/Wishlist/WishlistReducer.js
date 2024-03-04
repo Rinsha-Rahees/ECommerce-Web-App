@@ -35,11 +35,13 @@ export const WishlistReducer = (state = initialWishlist, action) => {
           );
   
           if (productExists.length > 0) {
-            const newWishlistWithoutProduct = state.wishlist.filter(product => product.id!==action.id)
+            const newWishlistWithoutProduct = state.wishlist.filter(product => product?.id!==action?.id)
             return {...state, wishlist: newWishlistWithoutProduct}
         }else{
             return state
         }
+      }else{
+        return state
       }
     }
 

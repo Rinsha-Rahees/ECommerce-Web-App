@@ -10,10 +10,10 @@ function VerticalList({ children, list }) {
               return (
                 <a 
                 className="hover:text-emerald-700 duration-200"
-                key={`${idx}_${item.itemName}`} 
-                href={item.href}
+                key={`${idx}_${item?.itemName}`} 
+                href={item?.href}
                 >
-                  {item.itemName}
+                  {item?.itemName}
                 </a>
               );
             })

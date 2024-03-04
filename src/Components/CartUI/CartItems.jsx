@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   MinusIcon,
   PencilSquareIcon,
@@ -6,72 +6,71 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../../reduxhandle/Cart/CartAction";
+import { addToCart, removeEntireItemFromCart, removeFromCart } from "../../reduxhandle/Cart/CartAction";
 
 function CartItems({ cartItemDetails }) {
-
-  const dispatch = useDispatch()
-
-  console.log("CART_ITEM", cartItemDetails);
+  const dispatch = useDispatch();
 
   const minusVisibility = () => {
-    if(cartItemDetails?.quantity > 1){
-      return "flex"
-    }else {
-      return "hidden"
+    if (cartItemDetails?.quantity > 1) {
+      return "flex";
+    } else {
+      return "hidden";
     }
-  }
+  };
 
   const trashVisibility = () => {
-    if(cartItemDetails?.quantity == 1){
-      return "flex"
-    }else {
-      return "hidden"
+    if (cartItemDetails?.quantity == 1) {
+      return "flex";
+    } else {
+      return "hidden";
     }
-  }
-    
+  };
 
   return (
-    <div className="flex flex-col justify-center w-full max-h-28 mb-6">
-      <div className="flex items-center m-4">
-        <img
-          src={cartItemDetails?.images[0]}
-          alt="Product Image"
-          className="h-fit w-20"
-        />
+    <div className="flex flex-col justify-center w-full h-fit max-h-28 mb-4 p-2 font-mono">
+      <div className="flex items-center py-2 w-full">
+          <img
+            src={cartItemDetails?.images[0]}
+            alt="Product Image"
+            className="max-h-28 w-20 text-sm "
+          />
 
-        <div className="flex flex-col px-3 h-fit">
-          <div className="flex w-full items-center justify-between">
+        <div className="flex flex-col text-md w-full pl-2">
+          <div className="flex items-center justify-between">
             <span>{cartItemDetails?.title}</span>
-            <button className="bg-gray-200 p-1 rounded-full">
+            <button className="p-1 rounded-full" onClick={() => dispatch(removeEntireItemFromCart(cartItemDetails?.id))}>
               <TrashIcon className="w-4 text-gray-400" />
             </button>
           </div>
-          <span className="leading-4 text-sm">Size</span>
-          <span className="font-semibold">{cartItemDetails?.price}</span>
-          <div className="flex justify-end items-center w-full mt-2">
-            <div className="flex flex-1 items-center justify-between border border-black rounded-lg w-24 px-3 py-0.5 mr-4">
-              
+          <span className="leading-4 text-sm">{cartItemDetails?.size}</span>
+          <span>{cartItemDetails?.priceString}</span>
+          <div className="flex items-center justify-between w-full mt-2">
+            <div className="flex items-center justify-between border border-black rounded-lg w-24 px-3 py-0.5">
               <div className="relative flex items-center w-fit h-fit top-0 left-0 mr-4">
-              <button className={`absolute h-fit w-fit p-0 ${minusVisibility()}`} onClick={() => dispatch(removeFromCart(cartItemDetails?.id))}>
-                <MinusIcon className="w-3" />
-              </button>
-              <button className={`absolute h-fit w-fit p-0 ${trashVisibility()}`} onClick={() => dispatch(removeFromCart(cartItemDetails?.id))}>
-                <TrashIcon className="w-3 " />
-              </button>
+                <button
+                  className={`absolute h-fit w-fit ${minusVisibility()}`}
+                  onClick={() => dispatch(removeFromCart(cartItemDetails?.id))}>
+                  <MinusIcon className="w-4" />
+                </button>
+                <button
+                  className={`absolute h-fit w-fit ${trashVisibility()}`}
+                  onClick={() => dispatch(removeFromCart(cartItemDetails?.id))}>
+                  <TrashIcon className="w-3" />
+                </button>
               </div>
+
+              <span className="font-semibold">{cartItemDetails?.quantity}</span>
               
-              <span>{cartItemDetails?.quantity}</span>
-              <button>
+              <button  onClick={() => dispatch(addToCart(cartItemDetails?.id))}>
                 <PlusIcon className="w-4" />
               </button>
             </div>
-            <div className="flex items-center">
-              <button>
-                <PencilSquareIcon className="w-5" />
-              </button>
+
+            <button className="flex items-center ml-1 hover:text-blue-500">
+              <PencilSquareIcon className="w-4" />
               <span className="text-xs">edit order</span>
-            </div>
+            </button>
           </div>
         </div>
       </div>

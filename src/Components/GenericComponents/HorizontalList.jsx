@@ -8,9 +8,9 @@ function HorizontalList({ list }) {
         return (
           <a
             key={`${idx}_${itemData.itemName}`}
-            href={itemData.href}
+            href={itemData?.href}
             className="underline pr-1.5 text-sm font-sans">
-            {itemData.itemName}
+            {itemData?.itemName}
           </a>
         );
       })}

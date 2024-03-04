@@ -1,5 +1,5 @@
 import React from "react";
-import { bootsCollection } from "../assets/DataCollection/DataArray";
+import { productDetails } from "../assets/DataCollection/DataArray";
 import ProductFullImages from "../Components/ProductDetailedViewUI/ProductFullImages";
 import Carousel from "../Components/GenericComponents/Carousel";
 import ProductDescription from "../Components/ProductDetailedViewUI/ProductDescription";
@@ -13,7 +13,7 @@ function ProductDetails() {
   const params = useParams();
   const productId = params.productId;
 
-  const prodDesc = bootsCollection.find((obj) => obj.id == productId);
+  const prodDesc = productDetails.find((obj) => obj.id == productId);
 
   return (
     <>

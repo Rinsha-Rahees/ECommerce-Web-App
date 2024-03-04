@@ -62,7 +62,7 @@ function Footer() {
                 <input
                   type="text"
                   placeholder="Your email address"
-                  className="bg-black pl-1 focus:outline-none w-32 xl:w-full"
+                  className="bg-black pl-1 focus:outline-none w-32 xl:w-full caret-gray-500 text-gray-500 placeholder-gray-500"
                 />
                 <button className="bg-white text-black text-base font-mono font-bold py-2 pl-1 pr-6 rounded-lg">
                   Subscribe

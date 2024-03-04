@@ -68,7 +68,7 @@ export const categoryItems = [
 
 //PRODUCT CARD DATA
 
-export const bootsCollection = [
+export const productDetails = [
   {
     id: 1,
     images: [
@@ -77,8 +77,9 @@ export const bootsCollection = [
       "src/assets/Jeans/baggy_cargos.webp",
       "src/assets/Jeans/baggy_cargos.webp",
     ],
-    title: "BROWN//ANKLE",
-    price: "RS.2,500",
+    title: "BROW N ANKLE",
+    price: 2590.00,
+    priceString: "RS.2,590.00",
     rating: 4,
     size: ["SM/28", "M/32", "L/36"],
   },
@@ -90,8 +91,9 @@ export const bootsCollection = [
       "src/assets/Jeans/baggy_cargos.webp",
       "src/assets/Jeans/baggy_cargos.webp",
     ],
-    title: "BEIGE//UNISEX",
-    price: "RS.3,999",
+    title: "BEIGE UNISEX",
+    price: 3599.00,
+    priceString: "RS.3,599.00",
     rating: 3,
     size: ["SM/28", "L/36"],
   },
@@ -104,7 +106,8 @@ export const bootsCollection = [
       "src/assets/Jeans/baggy_cargos.webp",
     ],
     title: "BROWN//UNISEX",
-    price: "RS.1,899",
+    price: 1549.00,
+    priceString: "RS.1,549.00",
     rating: 5,
     size: ["SM/28", "M/32"],
   },
@@ -117,7 +120,8 @@ export const bootsCollection = [
       "src/assets/no-logo-black-cap-02_1024x (1).webp",
     ],
     title: "BLACK//WOMEN",
-    price: "RS.2,999",
+    price: 599.00,
+    priceString: "RS.599.00",
     rating: 4,
     size: ["SM/28"],
   },
@@ -130,7 +134,8 @@ export const bootsCollection = [
       "src/assets/Jeans/baggy_cargos.webp",
     ],
     title: "CAP//BROWNIE",
-    price: "RS.599",
+    price: 400.00,
+    priceString: "RS.400.00",
     rating: 3,
     size: ["SM/28"],
   },
@@ -143,23 +148,10 @@ export const bootsCollection = [
       "src/assets/Jeans/baggy_cargos.webp",
     ],
     title: "T-SHIRT SET//UNISEX",
-    price: "RS.2,999",
+    price: 2599,
+    priceString: "RS.2,599.00",
     rating: 5,
     size: ["M/32", "L/36"],
   },
 ];
 
-//PRODUCT DETAILED VIEW DATA
-
-export const productDetails = [
-  {
-    title: "BROWN//ANKLE",
-    price: "RS.2,500.00",
-    image: [
-      "src/assets/Jeans/baggy_cargos.webp",
-      "src/assets/Jeans/baggy_cargos.webp",
-      "src/assets/Jeans/baggy_cargos.webp",
-      "src/assets/Jeans/baggy_cargos.webp",
-    ],
-  },
-];
