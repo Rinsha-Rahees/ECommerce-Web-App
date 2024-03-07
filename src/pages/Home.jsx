@@ -13,7 +13,6 @@ function Home() {
       <TopBar />
       <NavBarUI />
       <CategoryBar />
-
       <Slides />
       <AdvertisementBar />
       <ProductList />

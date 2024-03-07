@@ -7,14 +7,14 @@ function ProductDescription({ description }) {
     <div className="flex flex-col justify-between items-center w-full ">
       <div className="flex justify-between items-center w-full tracking-wide">
         <span className="text-2xl">{description?.title}</span>
-        <span className="text-xl font-semibold">{description?.price}</span>
+        <span className="text-xl font-semibold">{description?.priceString}</span>
       </div>
       <div className="flex justify-between text-xs w-full font-sans">
         <div className="flex flex-col">
           <span className="leading-3">Pants</span>
           <div className="flex">
             <StarIcon className="w-3" />
-            <span className="leading-5 ml-0.5">1 review</span>
+            <span className="leading-5 ml-0.5">{description?.rating} review</span>
           </div>
         </div>
         <span className="leading-[3px]">tax included.</span>

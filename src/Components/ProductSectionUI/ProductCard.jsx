@@ -4,21 +4,29 @@ import { HeartIcon as HeartIconOutline } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openCartDrawer } from "../../reduxhandle/CartDrawer/CartDrawerAction";
 import { addToCart } from "../../reduxhandle/Cart/CartAction";
 import { addToWishlist } from "../../reduxhandle/Wishlist/WishlistAction";
 import { Tooltip } from "react-tooltip";
 
 function ProductCard({ productDetails }) {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  const { wishlist } = useSelector((state) => state.wishlist);
   const [tooltipId, setTooltipId] = useState("");
   const [linkToWishlist, setLinkToWishlist] = useState("");
-  
-  const [heartHoverEffect, setHeartHoverEffect] = useState("hover:bg-black hover:text-white");
-  const [heartIcon, setHeartIcon] = useState(<HeartIconOutline className="w-6 hover:animate-pulse" />)
-  
+  let heartHoverEffect = "hover:bg-black hover:text-white"
+  let heartIcon = <HeartIconOutline className="w-6 hover:animate-pulse" />
+
+  const isWishlisted = wishlist.find((prod) => prod.id === productDetails.id)
+
+  if(isWishlisted){
+    heartIcon = <HeartIconSolid className="w-6" />
+    heartHoverEffect = "hover:bg-none hover:text-none"
+  }else{
+    heartIcon = <HeartIconOutline className="w-6 hover:animate-pulse" />
+  }
 
   const handleAddToCart = () => {
     dispatch(openCartDrawer());
@@ -28,34 +36,33 @@ function ProductCard({ productDetails }) {
   const handleAddToWishlist = () => {
     dispatch(addToWishlist(productDetails?.id));
     setTooltipId("my-tooltip-1");
-    setHeartHoverEffect("hover:bg-none hover:text-none")
-    setHeartIcon(<HeartIconSolid className="w-6"/>)
     //To open wishlist
-    setLinkToWishlist("/wishlist")
+    setLinkToWishlist("/wishlist");
   };
+
+
 
   return (
     <div className="flex flex-col h-full font-mono">
       <div className="relative flex flex-col items-center justify-center h-full w-full top-0 border rounded-md">
-        <div className="absolute hover:bg-gray-400 duration-300 ease-in-out hover:opacity-20  h-full w-full top-0 left-0 rounded-md" />
-        
         <Link to={linkToWishlist}>
-        <button
-          data-tooltip-id={tooltipId}
-          data-tooltip-content="Browse Wishlist"
-          onClick={() => handleAddToWishlist()}
-          className={`absolute top-1 right-1 rounded-md p-1 ${heartHoverEffect}`}>
-          {heartIcon}
-        </button>
+          <button
+            data-tooltip-id={tooltipId}
+            data-tooltip-content="Browse Wishlist"
+            onClick={() => handleAddToWishlist()}
+            className={`absolute top-1 right-1 rounded-md p-1 ${heartHoverEffect} z-10`}>
+            {heartIcon}
+          </button>
         </Link>
 
         <Tooltip
           id="my-tooltip-1"
           place="top"
-          style={{ backgroundColor: "transparent" , marginTop: 6}}
+          style={{ backgroundColor: "transparent", marginTop: 6 }}
         />
 
         <Link to={`/productview/${productDetails?.id}`}>
+          <div className="absolute hover:bg-gray-400 duration-300 ease-in-out hover:opacity-20  h-full w-full top-0 left-0 rounded-md" />
           <img
             src={productDetails?.images[0]}
             alt={"Image " + productDetails?.title}
@@ -88,7 +95,7 @@ function ProductCard({ productDetails }) {
           <div className="flex items-center">
             <StarIcon className="w-3" />
             <span className="text-xs font-sans font-extralight ml-0.5">
-              2 reviews
+              {productDetails?.rating} reviews
             </span>
           </div>
         </div>

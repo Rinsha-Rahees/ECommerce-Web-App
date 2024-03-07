@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import WishList from "./pages/WishList";
+import { getAllProducts, getIndividualProduct,  setAllProducts } from "./Firebase/FirebaseDBCollection";
 
 function App() {
+
   return (
     <div className="flex flex-col items-center justify-start m-0 p-0 w-screen h-screen overflow-x-hidden">
       <BrowserRouter>

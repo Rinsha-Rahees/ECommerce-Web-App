@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 function WishlistUI() {
   const { wishlist } = useSelector((state) => state.wishlist);
-  const [filtered, setFiltered] = useState([]);
+  const [filtered, setFiltered] = useState(0);
   const [inputValue, setInputValue] = useState("");
 
   const handleOnChange = (e) => {
@@ -41,7 +41,9 @@ function WishlistUI() {
       </div>
 
       <hr className="border-1 mt-2 w-full" />
+
       <WishlistItems filtered={filtered} />
+      
     </div>
   );
 }
