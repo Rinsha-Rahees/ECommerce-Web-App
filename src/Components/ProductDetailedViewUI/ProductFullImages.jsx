@@ -7,7 +7,7 @@ function ProductFullImages({ images }) {
               return (
                 <img
                   key={`${idx}_image`}
-                  src={`/${img}`}
+                  src={`${img}`}
                   alt={`Product Image`}
                 />
               );

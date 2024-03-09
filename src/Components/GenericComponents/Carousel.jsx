@@ -27,7 +27,7 @@ function Carousel({ images }) {
               return (
                 <img
                   key={`${idx}_image`}
-                  src={`/${img}`}
+                  src={`${img}`}
                   alt={`Ad Slide_${idx + 1}`}
                 />
               );

@@ -31,11 +31,11 @@ function ProductDetails() {
       <NavBarUI />
       <CategoryBar />
       {prodDesc? (
-        <div className="flex flex-col gap-10 md:flex-row justify-between w-full xl:max-w-[85vw] mt-8 p-8 font-mono">
-          <div className="w-full hidden md:flex">
+        <div className="flex flex-col gap-6 md:flex-row justify-between w-full xl:max-w-[85vw] mt-6 font-mono">
+          <div className="w-full h-fit hidden md:flex">
             <ProductFullImages images={prodDesc?.images} />
           </div>
-          <div className="w-full flex md:hidden">
+          <div className="w-full h-fit flex md:hidden">
             <Carousel images={prodDesc?.images} />
           </div>
 

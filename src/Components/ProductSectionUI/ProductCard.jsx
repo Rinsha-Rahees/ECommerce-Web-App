@@ -44,7 +44,7 @@ function ProductCard({ productDetails }) {
 
   return (
     <div className="flex flex-col h-full font-mono">
-      <div className="relative flex flex-col items-center justify-center h-full w-full top-0 border rounded-md">
+      <div className="relative flex flex-col items-center justify-center h-full w-full top-0 border rounded-md p-0.5">
         <Link to={linkToWishlist}>
           <button
             data-tooltip-id={tooltipId}
@@ -66,7 +66,7 @@ function ProductCard({ productDetails }) {
           <img
             src={productDetails?.images[0]}
             alt={"Image " + productDetails?.title}
-            className="h-64 sm:h-72 lg:h-80 w-fit rounded-md"
+            className="h-64 sm:h-72 lg:h-80 w-fit"
           />
         </Link>
         <div className="flex justify-center my-1">
@@ -94,7 +94,7 @@ function ProductCard({ productDetails }) {
           </span>
           <div className="flex items-center">
             <StarIcon className="w-3" />
-            <span className="text-xs font-sans font-extralight ml-0.5">
+            <span className="text-xs font-sans ml-0.5">
               {productDetails?.rating} reviews
             </span>
           </div>

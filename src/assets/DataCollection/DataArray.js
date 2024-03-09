@@ -60,10 +60,15 @@ export const advertisementImages = [
 //CATEGORY BAR DATA
 
 export const categoryItems = [
-  { href: "", itemName: "caps" },
-  { href: "", itemName: "t-shirts" },
+  { href: "", itemName: "hats&caps" },
+  { href: "", itemName: "skateboards" },
   { href: "", itemName: "bottoms" },
-  { href: "", itemName: "boots" },
+  { href: "", itemName: "legacy drops" },
+  { href: "", itemName: "mtv x um" },
+  { href: "", itemName: "eyewear" },
+  { href: "", itemName: "apparel" },
+  { href: "", itemName: "accessories" },
+  { href: "", itemName: "about us" },
 ];
 
 //PRODUCT CARD DATA
