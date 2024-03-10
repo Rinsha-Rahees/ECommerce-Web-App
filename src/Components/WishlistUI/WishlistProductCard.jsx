@@ -5,13 +5,14 @@ import { addToCart } from "../../reduxhandle/Cart/CartAction";
 import { openCartDrawer } from "../../reduxhandle/CartDrawer/CartDrawerAction";
 import { Link } from "react-router-dom";
 import { removeFromWishlist } from "../../reduxhandle/Wishlist/WishlistAction";
+import { Tooltip } from "react-tooltip";
 
 function WishlistProductCard({ productDetails }) {
-  
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart(productDetails?.id));
+    dispatch(addToCart(productDetails));
+    console.log(productDetails);
     dispatch(openCartDrawer());
   };
 
@@ -35,10 +36,17 @@ function WishlistProductCard({ productDetails }) {
           </button>
 
           <button
+            data-tooltip-id="my-tooltip-1"
+            data-tooltip-content="Remove from wishlist"
             onClick={() => dispatch(removeFromWishlist(productDetails?.id))}
             className="flex items-center justify-center  h-fit w-[15%]">
             <TrashIcon className="w-5" />
           </button>
+          <Tooltip
+            id="my-tooltip-1"
+            place="top"
+            style={{ backgroundColor: "transparent", marginTop: 6 }}
+          />
         </div>
       </div>
 

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeCartDrawer } from "../../reduxhandle/CartDrawer/CartDrawerAction";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Cart from "./Cart";
-import Subtotal from "./Subtotal";
 
 export default function CartDrawer() {
   const dispatch = useDispatch();

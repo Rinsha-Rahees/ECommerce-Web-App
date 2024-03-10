@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import EmptyWishlist from "./EmptyWishlist";
 
 function WishlistItems({ filtered }) {
+  
   const { wishlist } = useSelector((state) => state.wishlist);
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-2 gap-y-8 p-2 mt-4 xl:max-w-[85vw]">
       {filtered.length > 0 ? (

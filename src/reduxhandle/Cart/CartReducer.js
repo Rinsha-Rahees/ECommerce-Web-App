@@ -1,5 +1,4 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, REMOVE_ENTIRE_ITEM_FROM_CART } from "./CartType";
-import { productDetails } from "../../assets/DataCollection/DataArray";
 
 const initialCartState = {
   cart: [],
@@ -8,22 +7,19 @@ const initialCartState = {
 export const CartReducer = (state = initialCartState, action) => {
   switch (action.type) {
     case ADD_TO_CART: {
-      const getProductdetails = productDetails.find(
-        (product) => product.id == action.id
-      );
 
       if (state.cart.length == 0) {
-        return { ...state, cart: [{ ...getProductdetails, quantity: 1 }] };
+        return { ...state, cart: [{ ...action.productDetails, quantity: 1 }] };
       } else {
         const productExists = state.cart.filter(
-          (product) => product.id == action.id
+          (product) => product.id == action.productDetails.id
         );
-
+        
         if (productExists.length > 0) {
           return {
             ...state,
             cart: state.cart.map((product) =>
-              product.id == action.id
+            product.id == action.productDetails.id
                 ? { ...product, quantity: product.quantity + 1 }
                 : product
             ),
@@ -31,7 +27,7 @@ export const CartReducer = (state = initialCartState, action) => {
         } else {
           return {
             ...state,
-            cart: [...state.cart, { ...getProductdetails, quantity: 1 }],
+            cart: [...state.cart, { ...action.productDetails, quantity: 1 }],
           };
         }
       }

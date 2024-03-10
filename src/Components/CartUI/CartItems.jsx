@@ -7,8 +7,10 @@ import {
 } from "@heroicons/react/24/outline";
 import { useDispatch } from "react-redux";
 import { addToCart, removeEntireItemFromCart, removeFromCart } from "../../reduxhandle/Cart/CartAction";
+import { Link } from "react-router-dom";
 
 function CartItems({ cartItemDetails }) {
+  
   const dispatch = useDispatch();
 
   const minusVisibility = () => {
@@ -28,13 +30,16 @@ function CartItems({ cartItemDetails }) {
   };
 
   return (
-    <div className="flex flex-col justify-center w-full h-fit max-h-28 mb-4 p-2 font-mono">
+    <div className="flex flex-col justify-center w-full h-fit max-h-28 mb-4 mt-2 p-2 font-mono">
       <div className="flex items-center py-2 w-full">
+          
+          <Link to={`/productview/${cartItemDetails?.id}`}>
           <img
             src={cartItemDetails?.images[0]}
             alt="Product Image"
-            className="max-h-28 w-20 text-sm "
+            className="max-h-28 max-w-20 text-sm "
           />
+          </Link>
 
         <div className="flex flex-col text-md w-full pl-2">
           <div className="flex items-center justify-between">
@@ -62,7 +67,7 @@ function CartItems({ cartItemDetails }) {
 
               <span className="font-semibold">{cartItemDetails?.quantity}</span>
               
-              <button  onClick={() => dispatch(addToCart(cartItemDetails?.id))}>
+              <button  onClick={() => dispatch(addToCart(cartItemDetails))}>
                 <PlusIcon className="w-4" />
               </button>
             </div>

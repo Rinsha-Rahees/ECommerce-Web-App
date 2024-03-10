@@ -18,7 +18,6 @@ function ProductCard({ productDetails }) {
   const [linkToWishlist, setLinkToWishlist] = useState("");
   let heartHoverEffect = "hover:bg-black hover:text-white"
   let heartIcon = <HeartIconOutline className="w-6 hover:animate-pulse" />
-
   const isWishlisted = wishlist.find((prod) => prod.id === productDetails.id)
 
   if(isWishlisted){
@@ -30,17 +29,15 @@ function ProductCard({ productDetails }) {
 
   const handleAddToCart = () => {
     dispatch(openCartDrawer());
-    dispatch(addToCart(productDetails?.id));
+    dispatch(addToCart(productDetails));
   };
 
   const handleAddToWishlist = () => {
-    dispatch(addToWishlist(productDetails?.id));
+    dispatch(addToWishlist(productDetails));
     setTooltipId("my-tooltip-1");
     //To open wishlist
     setLinkToWishlist("/wishlist");
-  };
-
-
+  }
 
   return (
     <div className="flex flex-col h-full font-mono">

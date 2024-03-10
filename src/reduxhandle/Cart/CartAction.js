@@ -1,9 +1,9 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, REMOVE_ENTIRE_ITEM_FROM_CART } from "./CartType";
 
-export function addToCart(id){
+export function addToCart(productDetails){
     return{
         type: ADD_TO_CART,
-        id: id
+        productDetails: productDetails
     }
 }
 

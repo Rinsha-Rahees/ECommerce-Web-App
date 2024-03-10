@@ -1,9 +1,9 @@
 import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "./WishlistType";
 
-export function addToWishlist(id) {
+export function addToWishlist(productDetails) {
   return {
     type: ADD_TO_WISHLIST,
-    id: id,
+    productDetails: productDetails
   };
 }
 

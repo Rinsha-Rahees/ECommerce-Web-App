@@ -1,6 +1,5 @@
 import { getFirestore, doc, getDoc, getDocs, collection, setDoc } from "firebase/firestore";
 import { firebaseApp } from "./Firebase";
-import { productDetails } from "../assets/DataCollection/DataArray";
 
 const firestore = getFirestore(firebaseApp);
 
@@ -32,21 +31,21 @@ if(prod && prod?.id){
 };
 
 //Set all products
-export const setAllProducts = () => {
-  productDetails.map(prod => {
+export const setAllProducts = (arr) => {
+  arr.map(prod => {
     setIndividualProduct(prod)
   })
   return "Successfully set all products!"
 }
 
 //Get individual product
-export const getIndividualProduct = async () => {
+export const getIndividualProduct = async (id) => {
 
-  const docRef = doc(firestore, "productDetails", "1");
+  const docRef = doc(firestore, "productDetails", id);
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
+    return docSnap.data()
   } else {
     // docSnap.data() will be undefined in this case
     console.log("No such document!");
