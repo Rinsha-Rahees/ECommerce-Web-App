@@ -1,6 +1,6 @@
 import React from 'react'
 import Categories from './Categories';
-import { categoryItems } from '../../assets/DataCollection/DataArray'; 
+import { categoryItems } from '../../assets/DataArray'; 
 
 function CategoryBar() {
     

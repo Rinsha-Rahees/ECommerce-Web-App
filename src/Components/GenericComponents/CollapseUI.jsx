@@ -23,7 +23,7 @@ export default function CollapseUI() {
       desc: [
         {
           title: "",
-          desc: "please follow care label on clothing.\nall our clothing is hand wash, please ensure to always use cold water.",
+          desc: "Please follow care label on clothing.\nall our clothing is hand wash, please ensure to always use cold water.",
         },
       ],
     },
@@ -55,14 +55,14 @@ export default function CollapseUI() {
                   <hr key={`${data?.id}`} className="border" />
                   {data.desc.map((content) => {
                     return (
-                        <Disclosure.Panel
-                          key={`${content?.title}`}
-                          className="flex flex-col p-4 bg-gray-100 font-sans text-sm mt-4">
-                          <h3 className="text-lg font-semibold">
-                            {content?.title}
-                          </h3>
-                          <span className="leading-5">{content?.desc}</span>
-                        </Disclosure.Panel>
+                      <Disclosure.Panel
+                        key={`${content?.title}`}
+                        className="flex flex-col p-4 bg-gray-100 font-sans text-sm mt-4">
+                        <h3 className="text-lg font-semibold">
+                          {content?.title}
+                        </h3>
+                        <span className="leading-5">{content?.desc}</span>
+                      </Disclosure.Panel>
                     );
                   })}
                 </>

@@ -20,10 +20,11 @@ function NavBarUI() {
   const { wishlist } = useSelector((state) => state.wishlist);
 
   return (
-    <div className="flex flex-row items-center justify-between w-full shadow-md lg:shadow-none xl:max-w-[85vw] h-fit px-2">
+    <div className="flex items-center justify-center shadow-md lg:shadow-none h-fit w-full fixed z-20 bg-white top-8">
+      <div className="flex items-center justify-between w-full xl:max-w-[85vw]">
       <div className="flex flex-row lg:hidden">
         <button>
-          <Bars3Icon className="h-6 mx-3" />
+          <Bars3Icon className="h-6 px-3" />
         </button>
         <button>
           <MagnifyingGlassIcon className="h-6" />
@@ -82,6 +83,8 @@ function NavBarUI() {
       </div>
 
       <CartDrawer />
+      </div>
+     
     </div>
   );
 }

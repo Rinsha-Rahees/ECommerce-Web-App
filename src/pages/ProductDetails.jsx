@@ -9,11 +9,14 @@ import CategoryBar from "../Components/CategoryBarUI/CategoryBar";
 import { useParams } from "react-router-dom";
 import { getIndividualProduct } from "../Firebase/FirebaseDBCollection";
 import ShimmerUI from '../Components/GenericComponents/ShimmerUI'
+import NotFoundPage from "../Components/GenericComponents/NotFoundPage";
 
 function ProductDetails() {
   const params = useParams();
   const productId = params.productId;
   const [prodDesc, setProdDesc] = useState(null)
+  
+  const images =  prodDesc?.images ? prodDesc?.images : ""
   
   useEffect(() => {
     product()
@@ -21,6 +24,7 @@ function ProductDetails() {
 
   const product = async () => {
     const result = await getIndividualProduct(productId);
+    if(!result) return <NotFoundPage/>
     setProdDesc(result);
   };
 
@@ -33,10 +37,10 @@ function ProductDetails() {
       {prodDesc? (
         <div className="flex flex-col gap-6 md:flex-row justify-between w-full xl:max-w-[85vw] mt-4 p-4 font-mono">
           <div className="w-full h-fit hidden md:flex">
-            <ProductFullImages images={prodDesc?.images} />
+            <ProductFullImages images={images} />
           </div>
           <div className="w-full h-fit flex md:hidden">
-            <Carousel images={prodDesc?.images} />
+            <Carousel images={images} />
           </div>
 
           <div className="w-full">

@@ -2,10 +2,10 @@ import React from "react";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 
-function SocialMedia({ icons }) {
+function SocialMedia({ socialMedia }) {
   return (
     <>
-      {icons.map((iconDetails, idx) => {
+      {socialMedia.map((iconDetails, idx) => {
         return (
           <button
             data-tooltip-id="my-tooltip-1"
@@ -13,7 +13,7 @@ function SocialMedia({ icons }) {
             key={`${idx}_icons`}
             className="w-8 border rounded-full p-1.5 hover:border-emerald-700 lg:hover:-translate-y-1.5 ease-in-out duration-500">
             <img
-              src={`/${iconDetails.src}`}
+              src={iconDetails?.src}
               alt="Social Media Icon"
               className="w-6"
             />

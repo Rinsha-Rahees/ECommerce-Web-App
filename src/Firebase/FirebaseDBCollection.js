@@ -1,5 +1,6 @@
 import { getFirestore, doc, getDoc, getDocs, collection, setDoc } from "firebase/firestore";
 import { firebaseApp } from "./Firebase";
+import NotFoundPage from "../Components/GenericComponents/NotFoundPage"
 
 const firestore = getFirestore(firebaseApp);
 
@@ -21,11 +22,11 @@ if(prod && prod?.id){
 
   }catch{
 
-    console.error("Failed to add document!", error)
+    return false
 
   }
 }else{
-  console.error("Invalid product data", prod)
+  return false
 }
 
 };
@@ -35,6 +36,7 @@ export const setAllProducts = (arr) => {
   arr.map(prod => {
     setIndividualProduct(prod)
   })
+  
   return "Successfully set all products!"
 }
 
@@ -47,8 +49,7 @@ export const getIndividualProduct = async (id) => {
   if (docSnap.exists()) {
     return docSnap.data()
   } else {
-    // docSnap.data() will be undefined in this case
-    console.log("No such document!");
+    return false
   }
 }
 
@@ -56,6 +57,7 @@ export const getIndividualProduct = async (id) => {
 export const getAllProducts = async () => {
     const querySnapshot = await getDocs(collection(firestore, "productDetails"));
     const res =  querySnapshot.docs.map((doc) => doc.data())
+    if(!res) return false
     return res
 }
 

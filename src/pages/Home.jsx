@@ -12,10 +12,12 @@ function Home() {
     <>
       <TopBar />
       <NavBarUI />
-      <CategoryBar />
-      <Slides />
-      <AdvertisementBar />
-      <ProductList />
+      <div className="flex flex-col items-center mt-20">
+        <CategoryBar />
+        <Slides />
+        <AdvertisementBar />
+        <ProductList />
+      </div>
       <Footer />
     </>
   );

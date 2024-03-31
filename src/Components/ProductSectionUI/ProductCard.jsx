@@ -12,6 +12,10 @@ import { Tooltip } from "react-tooltip";
 
 function ProductCard({ productDetails }) {
 
+  
+  const images =  productDetails?.images ? productDetails?.images : ""
+  const size = productDetails?.size ? productDetails.size : []
+
   const dispatch = useDispatch();
   const { wishlist } = useSelector((state) => state.wishlist);
   const [tooltipId, setTooltipId] = useState("");
@@ -61,13 +65,14 @@ function ProductCard({ productDetails }) {
         <Link to={`/productview/${productDetails?.id}`}>
           <div className="absolute hover:bg-gray-400 duration-300 ease-in-out hover:opacity-20  h-full w-full top-0 left-0 rounded-md" />
           <img
-            src={productDetails?.images[0]}
+            src={images[0]}
             alt={"Image " + productDetails?.title}
             className="h-64 sm:h-72 lg:h-80 w-fit"
           />
         </Link>
         <div className="flex justify-center my-1">
-          {productDetails?.size.map((size, idx) => {
+          {size.length > 0 ?
+          size.map((size, idx) => {
             return (
               <span
                 className="border border-black text-xs p-0.5 mx-0.5"
@@ -75,7 +80,8 @@ function ProductCard({ productDetails }) {
                 {size}
               </span>
             );
-          })}
+          }):""
+        }
         </div>
       </div>
 

@@ -12,7 +12,6 @@ function WishlistProductCard({ productDetails }) {
 
   const handleAddToCart = () => {
     dispatch(addToCart(productDetails));
-    console.log(productDetails);
     dispatch(openCartDrawer());
   };
 

@@ -9,10 +9,10 @@ import {
 import SocialMedia from "./SocialMedia";
 import {
   popularSearchList,
-  socialMediaIcons,
+  socialMedia,
   coolStuffList,
   boringStuffList,
-} from "../../assets/DataCollection/DataArray";
+} from "../../assets/DataArray";
 
 function Footer() {
   return (
@@ -48,7 +48,7 @@ function Footer() {
               </span>
             </div>
             <div className="flex gap-2">
-              <SocialMedia icons={socialMediaIcons} />
+              <SocialMedia socialMedia={socialMedia} />
             </div>
           </div>
           <div className="mt-6">
